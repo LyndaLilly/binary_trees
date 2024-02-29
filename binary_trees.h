@@ -6,14 +6,14 @@
 
 /**
  * struct binary_tree_s - this is the binary tree
- * @np: this is the node
+ * @n: this is the node
  * @parent: this is the parent node
  * @left: this is the left node
  * @right: this is the right node
  */
 struct binary_tree_s
 {
-  int np;
+  int n;
   struct binary_tree_s *parent;
   struct binary_tree_s *left;
   struct binary_tree_s *right;
