@@ -28,7 +28,7 @@ void bal(avl_t **tree)
  */
 int successor(bst_t *node)
 {
-	int yt = 0;
+	int left = 0;
 
 	if (node == NULL)
 	{
@@ -36,12 +36,12 @@ int successor(bst_t *node)
 	}
 	else
 	{
-		yt = successor(node->yt);
-		if (yt == 0)
+		left = successor(node->left);
+		if (left == 0)
 		{
 			return (node->n);
 		}
-		return (yt);
+		return (left);
 	}
 
 }
@@ -54,32 +54,32 @@ int remove_type(bst_t *root)
 {
 	int res = 0;
 
-	if (!root->yt && !root->right)
+	if (!root->left && !root->right)
 	{
 		if (root->parent->right == root)
 			root->parent->right = NULL;
 		else
-			root->parent->yt = NULL;
+			root->parent->left = NULL;
 		free(root);
 		return (0);
 	}
-	else if ((!root->yt && root->right) || (!root->right && root->yt))
+	else if ((!root->left && root->right) || (!root->right && root->left))
 	{
-		if (!root->yt)
+		if (!root->left)
 		{
 			if (root->parent->right == root)
 				root->parent->right = root->right;
 			else
-				root->parent->yt = root->right;
+				root->parent->left = root->right;
 			root->right->parent = root->parent;
 		}
 		if (!root->right)
 		{
 			if (root->parent->right == root)
-				root->parent->right = root->yt;
+				root->parent->right = root->left;
 			else
-				root->parent->yt = root->yt;
-			root->yt->parent = root->parent;
+				root->parent->left = root->left;
+			root->left->parent = root->parent;
 		}
 		free(root);
 		return (0);
@@ -104,7 +104,7 @@ bst_t *bst_remove(bst_t *root, int value)
 	if (root == NULL)
 		return (NULL);
 	if (value < root->n)
-		bst_remove(root->yt, value);
+		bst_remove(root->left, value);
 	else if (value > root->n)
 		bst_remove(root->right, value);
 	else if (value == root->n)
