@@ -92,7 +92,7 @@ avl_t *avl_insert_recursive(avl_t **tree, avl_t *parent,
  */
 avl_t *avl_insert(avl_t **tree, int value)
 {
-	avl_t *txt = NULL;
+	avl_t *new = NULL;
 
 	if (tree == NULL)
 		return (NULL);
@@ -101,6 +101,6 @@ avl_t *avl_insert(avl_t **tree, int value)
 		*tree = binary_tree_node(NULL, value);
 		return (*tree);
 	}
-	avl_insert_recursive(tree, *tree, &txt, value);
-	return (txt);
+	avl_insert_recursive(tree, *tree, &new, value);
+	return (new);
 }
