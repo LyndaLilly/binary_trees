@@ -1,10 +1,9 @@
 #include "binary_trees.h"
-
 /**
  * array_to_avl - this is the avl.
  * @array: this is the array
  * @size: this is the size
- * Return: or NULL 
+ * Return: or NULL
  */
 avl_t *array_to_avl(int *array, size_t size)
 {
