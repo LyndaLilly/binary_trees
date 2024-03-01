@@ -14,5 +14,5 @@ heap_t *array_to_heap(int *array, size_t size)
 	for (ax = 0; ax < size; ax++)
 		heap_insert(&rt, array[ax]);
 
-	return (root);
+	return (rt);
 }
