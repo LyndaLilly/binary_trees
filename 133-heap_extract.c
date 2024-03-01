@@ -27,8 +27,9 @@ size_t tree_height(const heap_t *tree)
 /**
  * tree_size_h - this is the tree size
  * @tree: this is the tree
- * Return: height or 0 
+ * Return: height or 0
  */
+
 size_t tree_size_h(const binary_tree_t *tree)
 {
 	size_t ab = 0;
