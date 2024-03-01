@@ -1,4 +1,5 @@
 #include "binary_trees.h"
+
 /**
  * array_to_avl - this is the avl.
  * @array: this is the array
@@ -7,7 +8,7 @@
  */
 avl_t *array_to_avl(int *array, size_t size)
 {
-	avl_t *ups = NULL;
+	avl_t *tree = NULL;
 	size_t a, ba;
 
 	if (array == NULL)
@@ -22,10 +23,10 @@ avl_t *array_to_avl(int *array, size_t size)
 		}
 		if (ba == a)
 		{
-			if (avl_insert(&ups, array[a]) == NULL)
+			if (avl_insert(&tree, array[a]) == NULL)
 				return (NULL);
 		}
 	}
 
-	return (ups);
+	return (tree);
 }
